@@ -1,0 +1,17 @@
+.button {
+    border-radius: 20px;
+
+    padding: 10px 30px;
+
+    text-align: center;
+    
+    color: white;
+
+    font-weight: bold;
+
+    font-size: 1.5rem;
+}
+
+a.button {
+    text-decoration: none;
+}
