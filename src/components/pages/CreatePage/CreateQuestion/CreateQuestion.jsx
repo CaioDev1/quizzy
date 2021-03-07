@@ -1,4 +1,5 @@
 import React from 'react'
+import './CreateQuestionStyle.css'
 
 import CreateAlternative from './CreateAlternative/CreateAlternative'
 

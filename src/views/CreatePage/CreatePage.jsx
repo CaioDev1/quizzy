@@ -1,7 +1,7 @@
 import React from 'react'
 import './CreatePageStyle.css'
 
-import CreateQuestion from '../../components/CreateQuestion/CreateQuestion'
+import CreateQuestion from '../../components/pages/CreatePage/CreateQuestion/CreateQuestion'
 import Button from '../../components/Button/Button'
 
 function CreatePage() {

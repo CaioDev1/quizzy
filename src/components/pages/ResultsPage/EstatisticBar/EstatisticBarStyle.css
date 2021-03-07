@@ -1,0 +1,15 @@
+#results-page .estatistic-bar {
+    background: green;
+
+    border-radius: 100px;
+
+    width: 100%;
+
+    padding: 5px 15px;
+
+    margin-bottom: 15px;
+}
+
+#results-page .estatistic-bar:last-child {
+    margin-bottom: 0;
+}
