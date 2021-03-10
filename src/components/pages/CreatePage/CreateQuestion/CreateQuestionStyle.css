@@ -17,8 +17,8 @@
         position: relative;
     }
 
-    #create-page .create-question-alternative-field input {
-        width: 85%;
+    #create-page .create-question-alternative {
+        width: 100%;
         height: 40px;
 
         padding-right: 40px;

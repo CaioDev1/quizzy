@@ -4,6 +4,8 @@ import './CreatePageStyle.css'
 import CreateQuestion from '../../components/pages/CreatePage/CreateQuestion/CreateQuestion'
 import Button from '../../components/Button/Button'
 
+import Notification from '../../components/Notification/Notification'
+
 function CreatePage() {
     let alternativeSchema = {
         title: '',
@@ -16,6 +18,10 @@ function CreatePage() {
     let [topic, setTopic] = useState('')
     let [quizzCode, setQuizzCode] = useState('')
     let [isQuizzCreated, setIsQuizzCreated] = useState(false)
+    let [isError, setIsError] = useState({
+        message: '',
+        active: false,
+    })
 
     function addNewQuestion() {
         setQuestion(preValue => {
@@ -29,7 +35,62 @@ function CreatePage() {
     function handleNewQuizzRequest(e) {
         e.preventDefault()
 
-        setIsQuizzCreated(true)
+        validadeForm()
+    }
+
+    function validadeForm() {
+        if(owner.length && topic.length) {
+            //validar se as questões e alternativas foram preenchidas corretamente
+            let isFormOK = true
+
+            for(let q of question) {
+                if(q.title.length) {
+                    let hasCorrect = false
+
+                    for(let a of q.alternatives) {
+                        if(a.correct) hasCorrect = true
+                        if(!(a.content.length)) {
+                            setIsError({
+                                message: 'Texto da alternativa não preenchida corretamente',
+                                active: true
+                            })
+
+                            isFormOK = false
+                            break
+                        }
+                    }
+
+                    if(!isFormOK) break // caso não tenha texto na alternativa (o isFormOK foi setado para false)
+
+                    if(!hasCorrect) {
+                        setIsError({
+                            message: 'Selecione a alternativa correta da questão',
+                            active: true
+                        })
+
+                        isFormOK = false
+                        break
+                    }
+                } else {
+                    setIsError({
+                        message: 'Título da questão não preenchida',
+                        active: true
+                    })
+
+                    isFormOK = false
+                    break
+                }
+            }
+
+            if(isFormOK) {
+                setIsQuizzCreated(true)
+            }
+        } else {
+            setIsError({
+                message: 'Informações do menu não preenchidas corretamente',
+                active: true
+            })
+        }
     }
 
     return (
@@ -55,6 +116,7 @@ function CreatePage() {
                     </div>
                 </form>
             </main>
+            {isError.active && <Notification message={isError.message} setIsError={setIsError} active={isError.active} />}
         </div>
     )
 }

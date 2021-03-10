@@ -4,10 +4,16 @@ import './LandingPageStyle.css'
 import Button from '../../components/Button/Button'
 import { Redirect } from 'react-router'
 
+import Notification from '../../components/Notification/Notification'
+
 function LandingPage() {
     let [username, setUsername] = useState('')
     let [quizzCode, setQuizzCode] = useState(null)
     let [isSubmitComplete, setIsSubmitComplete] = useState(false)
+    let [isError, setIsError] = useState({
+        message: '',
+        active: false,
+    })
 
     let [chosenTeam, setChosenTeam] = useState({
         sabidos: false,
@@ -28,7 +34,18 @@ function LandingPage() {
     function handleUserSubmit(e) {
         e.preventDefault()
 
-        setIsSubmitComplete(true)
+        validateForm()
+    }
+
+    function validateForm() {
+        if(username.length && quizzCode && (chosenTeam.sabidos || chosenTeam.wikipedia)) {
+            setIsSubmitComplete(true)
+        } else {
+            setIsError({
+                message: 'Campos não preenchidos!', 
+                active: true
+            })
+        }
     }
 
     return (
@@ -55,6 +72,7 @@ function LandingPage() {
                 <Button type='button' buttonType="submit" color='#28D439'>ENTRAR</Button>
             </form>
             <Button to='/create' color='#343330'>CRIAR SEU QUIZZ</Button>
+            {isError.active && <Notification message={isError.message} setIsError={setIsError} active={isError.active} />}
             {isSubmitComplete && <Redirect to='/quizz' />}
         </div>
     )

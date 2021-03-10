@@ -45,3 +45,11 @@
             font-weight: bold;
             font-size: 1.5rem;
         }
+
+#results-page .player-result:hover {
+    background: #5e5e5e;
+}
+
+#results-page .button:hover {
+    background: #383d3f !important;
+}

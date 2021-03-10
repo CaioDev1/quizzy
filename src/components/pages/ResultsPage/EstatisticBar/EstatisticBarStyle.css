@@ -3,13 +3,22 @@
 
     border-radius: 100px;
 
-    width: 100%;
+    width: 0px;
 
     padding: 5px 15px;
 
     margin-bottom: 15px;
+
+    transition: width 0.8s ease-out;
+
+    overflow: hidden;
 }
 
 #results-page .estatistic-bar:last-child {
     margin-bottom: 0;
 }
+
+    #results-page .estatistic-bar h3 {
+        white-space: nowrap;
+        width: fit-content;
+    }
