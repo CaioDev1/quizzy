@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import './CreateQuestionStyle.css'
 
 import CreateAlternative from './CreateAlternative/CreateAlternative'
@@ -68,6 +68,28 @@ function CreateQuestion({question, setQuestion, index}) {
         })
     }
 
+    function handleDeleteAlternative(mark) {
+        // exclue a alternativa do array
+        let updatedAlternativesWithDelete = question[index].alternatives.filter(item => {
+            return item.mark != mark
+        })
+
+        // MUDA A ALTERNATIVA "D" PARA "C" CASO O "C" SEJA EXCLUIDO
+        updatedAlternativesWithDelete = updatedAlternativesWithDelete.map((item, i) => {
+            if(item.mark == 'D' && updatedAlternativesWithDelete.length == 3) { 
+                item.mark = 'C'
+            }
+
+            return item
+        })
+
+        setQuestion(preValue => {
+            preValue[index].alternatives = updatedAlternativesWithDelete
+
+            return [...preValue]
+        })
+    }
+
     function handleQuestionTitle(e) {
         setQuestion(preValue => {
             preValue[index] = {
@@ -91,6 +113,7 @@ function CreateQuestion({question, setQuestion, index}) {
                             selected={item.correct}
                             setQuestionValue={setQuestionValue} 
                             setCorrectAlternative={setCorrectAlternative}
+                            handleDeleteAlternative={handleDeleteAlternative}
                         />
                     )
                 })}
