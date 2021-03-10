@@ -39,7 +39,8 @@
                     background: green;
 
                     height: 100%;
-                    width: 80%;
+                    
+                    transition: width 0.2s ease-out;
                 }
 
             #quizz-page #progress-container strong {
@@ -58,6 +59,11 @@
             }
         
 
+    #quizz-page main {
+        display: flex;
+        flex-direction: column;
+    }
+    
     #quizz-page h1 {
         padding: 0 20px 20px;
 
@@ -66,4 +72,6 @@
 
     #quizz-page #alternative-container {
         width: 80%;
+
+        margin: 0 auto;
     }

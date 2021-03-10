@@ -31,3 +31,11 @@
         font-size: 1.4rem;
         font-weight: bolder;
     }
+
+#quizz-page .alternative.correct {
+    background: green;
+}
+
+#quizz-page .alternative.wrong {
+    background: red;
+}

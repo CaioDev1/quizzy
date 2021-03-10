@@ -1,11 +1,15 @@
 .container#create-page {
-    padding: 0% 450px 3% 5%;
+    padding: 0% 0 3% 5%;
 
     position: relative;
 }
 
     #create-page h1 {
         font-size: 5rem;
+    }
+
+    #create-page main {
+        padding-right: 450px;
     }
 
     #create-page .create-question-container {
@@ -47,22 +51,34 @@
                 margin-top: 10px;
             }
 
-        #create-page #question-menu-rows h3 {
-            height: 50px;
-            width: 100%;
-
-            background: rgb(46, 50, 51);
-
-            border-radius: 10px;
-
-            font-size: 20px;
-            font-weight: bold;
-
+        #create-page #question-menu-rows {
             display: flex;
-            align-items: center;
-
-            padding-left: 30px;
-
-            margin: 10px 0;
+            flex-direction: column;
         }
+
+            #create-page #question-menu-rows > * {
+                margin-bottom: 10px;
+            }
+
+            #create-page #question-menu-rows:last-child {
+                margin: 0;
+            }
+
+    
+            #create-page #question-menu-rows h3 {
+                height: 50px;
+                width: 100%;
+
+                background: rgb(46, 50, 51);
+
+                border-radius: 10px;
+
+                font-size: 20px;
+                font-weight: bold;
+
+                display: flex;
+                align-items: center;
+
+                padding-left: 30px;
+            }
 

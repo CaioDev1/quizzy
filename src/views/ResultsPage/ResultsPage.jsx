@@ -1,6 +1,6 @@
 import React from 'react'
 import Button from '../../components/Button/Button'
-import EstatisticBar from '../../components/EstatisticBar/EstatisticBar'
+import EstatisticBar from '../../components/pages/ResultsPage/EstatisticBar/EstatisticBar'
 import PlayerResult from '../../components/pages/ResultsPage/PlayerResult/PlayerResult'
 import './ResultsPageStyle.css'
 
@@ -13,7 +13,7 @@ function ResultsPage() {
                     return <EstatisticBar percentage={v} place={i + 1} />
                 })}
             </div>
-            <h1 id="winner-team">🎉Time <span>Wikipedia</span> vitorioso!🎉</h1>
+            <h1 id="winner-team">🎉Time <span>Wikipedia</span> liderando!🎉</h1>
             <div id="results-container">
                 {[
                     {name: 'Caio Felipe', score: 2000, team: 'red'},

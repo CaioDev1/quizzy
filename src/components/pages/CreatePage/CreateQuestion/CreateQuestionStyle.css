@@ -43,6 +43,10 @@
             background: #C4C4C4;
         }
 
+            #create-page .create-question-alternative-button.selected {
+                background: #36820d;
+            }
+
         #create-page .add-alternative-button {
             background: #3EACEA;
         }

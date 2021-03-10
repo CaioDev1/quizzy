@@ -59,13 +59,17 @@
                 border-radius: 15px;
 
                 padding: 15px;
-                margin: 5% 0;
+                margin: 5% 1%;
+
+                cursor: pointer;
             }
 
             #landing-page fieldset#teams > div:hover {
-                background: lightgray;
+                background: rgba(228, 228, 228, 0.493);
+            }
 
-                cursor: pointer;
+            #landing-page fieldset#teams > div.selected {
+                background: lightgray;
             }
 
                 #landing-page #team-sabidos span, #landing-page #team-wikipedia span {
