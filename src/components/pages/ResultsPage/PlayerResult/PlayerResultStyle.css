@@ -17,16 +17,16 @@
     margin-bottom: 0;
 }
 
-#results-page .team-icon {
-        height: 50px;
-        width: 50px;
+/* #results-page .team-icon {
+    height: 50px;
+    width: 50px;
 
-        border-radius: 100%;
+    border-radius: 100%;
 
-        background: red;
+    background: red;
 
-        margin-right: 5%;
-    }
+    margin-right: 5%;
+} */
 
     #results-page .player-result h3 {
         font-size: 1.5rem;

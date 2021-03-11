@@ -5,6 +5,7 @@ import Button from '../../components/Button/Button'
 import { Redirect } from 'react-router'
 
 import Notification from '../../components/Notification/Notification'
+import TeamIcon from '../../components/TeamIcon/TeamIcon'
 
 function LandingPage() {
     let [username, setUsername] = useState('')
@@ -61,11 +62,11 @@ function LandingPage() {
                 </fieldset>
                 <fieldset id='teams'>
                     <div id='team-sabidos' className={chosenTeam.sabidos ? 'selected' : ''} onClick={() => {handleTeamSelection('sabidos')}}>
-                        <span id='team-sabidos-circle'></span>
+                        <TeamIcon team='sabidos' height='70px' width='70px' />
                         <p>TIME SABIDOS</p>
                     </div>
                     <div id='team-wikipedia' className={chosenTeam.wikipedia ? 'selected' : ''}  onClick={() => {handleTeamSelection('wikipedia')}}>
-                        <span id='team-wikipedia-circle'></span>
+                        <TeamIcon team='wikipedia' height='70px' width='70px' />
                         <p>TIME WIKIPEDIA</p>
                     </div>
                 </fieldset>

@@ -21,11 +21,11 @@ function ResultsPage() {
             <Grow in mountOnEnter timeout={700}>
                 <div id="results-container">
                     {[
-                        {name: 'Caio Felipe', score: 2000, team: 'red'},
-                        {name: 'Jorginho', score: 1500, team: 'blue'},
-                        {name: 'Laura Silva', score: 1000, team: 'blue'},
+                        {username: 'Caio Felipe', score: 2000, team: 'sabidos'},
+                        {username: 'Jorginho', score: 1500, team: 'wikipedia'},
+                        {username: 'Laura Silva', score: 1000, team: 'wikipedia'},
                     ].map(v => {
-                        return <PlayerResult name={v.name} score={v.score} team={v.team} />
+                        return <PlayerResult username={v.username} score={v.score} team={v.team} />
                     })}
                 </div>
             </Grow>
