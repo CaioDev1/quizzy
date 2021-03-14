@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import './LandingPageStyle.css'
 
 import Button from '../../components/Button/Button'
@@ -7,9 +7,13 @@ import { Redirect } from 'react-router'
 import Notification from '../../components/Notification/Notification'
 import TeamIcon from '../../components/TeamIcon/TeamIcon'
 
+import api from '../../API-CONFIG/API-CONFIG'
+
+import CurrentPlayerIdContext from '../../Contexts'
+
 function LandingPage() {
     let [username, setUsername] = useState('')
-    let [quizzCode, setQuizzCode] = useState(null)
+    let [quizzId, setQuizzCode] = useState(null)
     let [isSubmitComplete, setIsSubmitComplete] = useState(false)
     let [isError, setIsError] = useState({
         message: '',
@@ -20,6 +24,8 @@ function LandingPage() {
         sabidos: false,
         wikipedia: false
     })
+
+    let [currentPlayerId, setCurrentPlayerId] = useContext(CurrentPlayerIdContext)
 
     function handleTeamSelection(team) {
         setChosenTeam(preValue => {
@@ -39,8 +45,21 @@ function LandingPage() {
     }
 
     function validateForm() {
-        if(username.length && quizzCode && (chosenTeam.sabidos || chosenTeam.wikipedia)) {
-            setIsSubmitComplete(true)
+        if(username.length && quizzId && (chosenTeam.sabidos || chosenTeam.wikipedia)) {
+            api.post('/player/add', {
+                username,
+                quizzId,
+                team: chosenTeam.sabidos ? 'sabidos' : 'wikipedia'
+            }).then(response => {
+                setCurrentPlayerId(response.data.playerId)
+
+                setIsSubmitComplete(true)
+            }).catch(err => {
+                setIsError({
+                    message: err.message, 
+                    active: true
+                })
+            })
         } else {
             setIsError({
                 message: 'Campos não preenchidos!', 
@@ -58,7 +77,7 @@ function LandingPage() {
             <form action="" onSubmit={handleUserSubmit}>
                 <fieldset id='inputs'>
                     <input type="text" name="" id="" value={username} onChange={e => {setUsername(e.target.value)}} placeholder='NOME' />
-                    <input type="number" name="" id="" value={quizzCode} onChange={e => {setQuizzCode(e.target.value)}} placeholder='CÓDIGO' />
+                    <input type="number" name="" id="" value={quizzId} onChange={e => {setQuizzCode(e.target.value)}} placeholder='CÓDIGO' />
                 </fieldset>
                 <fieldset id='teams'>
                     <div id='team-sabidos' className={chosenTeam.sabidos ? 'selected' : ''} onClick={() => {handleTeamSelection('sabidos')}}>
@@ -74,7 +93,7 @@ function LandingPage() {
             </form>
             <Button to='/create' color='#343330'>CRIAR SEU QUIZZ</Button>
             {isError.active && <Notification message={isError.message} setIsError={setIsError} active={isError.active} />}
-            {isSubmitComplete && <Redirect to='/quizz' />}
+            {isSubmitComplete && <Redirect to={`/quizz/${quizzId}`} />}
         </div>
     )
 }

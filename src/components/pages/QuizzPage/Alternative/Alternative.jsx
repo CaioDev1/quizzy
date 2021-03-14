@@ -4,7 +4,7 @@ import './AlternativeStyle.css'
 function Alternative({mark, content, isCorrect, handleQuestionResult}) {
     function changeAlternativeColor(status) {
         switch(status) {
-            case undefined:
+            case null:
                 return ''
             case true:
                 return 'correct'
