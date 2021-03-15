@@ -50,18 +50,27 @@
         #quizz-page #score {
             font-size: 1.2rem;
         }
+            #quizz-page #score h3 {
+                display: flex;
+                flex-direction: column;
+            }
 
             #quizz-page #score span {
                 color: #106DC2;
 
                 font-size: 2rem;
                 font-weight: bolder;
+
+                margin: 0 auto;
             }
         
 
     #quizz-page main {
         display: flex;
         flex-direction: column;
+
+        width: 100%;
+        max-width: 1300px;
     }
     
     #quizz-page h1 {
@@ -75,3 +84,28 @@
 
         margin: 0 auto;
     }
+
+
+@media screen and (max-width: 700px) {
+    #quizz-page.container {
+        padding: 10px;
+    }
+
+    #quizz-page #progress-container {
+        font-size: 1rem;
+    }
+
+        #quizz-page #progress-container #progress-bar-out {
+            width: 150px;
+            height: 30px;
+        }
+
+    #quizz-page #alternative-container {
+        margin: 0;
+        width: 100%;
+    }
+
+        #quizz-page .alternative {
+            text-align: left;
+        }
+}

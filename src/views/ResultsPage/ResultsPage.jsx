@@ -33,7 +33,7 @@ function ResultsPage() {
             setResults(response.data)
         }).catch(err => {
             setIsError({
-                message: err.message, 
+                message: err.response.data.message, 
                 active: true
             })
         })
@@ -43,14 +43,20 @@ function ResultsPage() {
         <div className="container" id="results-page">
             <h1>Resultados</h1>
             <div id="estatistics-container">
-                {results.players.length &&
+                {results.players.length !== 0 &&
                     [...Array(5)].map((v, i) => {
-                        return <EstatisticBar percentage={(results.players[i].score * 100) / (results.questionNum * 200)} place={i + 1} />
+                        if(results.players[i])
+                        return <EstatisticBar percentage={Math.round((results.players[i].score * 100) / (results.questionNum * 200))} place={i + 1} />
                     })
                 }
             </div>
             {   results.leaderingTeam !== '' &&
-                <Slide direction='left' in mountOnEnter timeout={600}><h1 id="winner-team">🎉Time <span>{results.leaderingTeam}</span> liderando!🎉</h1></Slide>
+                <Slide direction='left' in mountOnEnter timeout={600}>
+                    {results.leaderingTeam == 'Empate' ?
+                        <h1 id='winner-team' style={{background: 'green'}}>Empatado!</h1> :
+                        <h1 id="winner-team">🎉Time <span>{results.leaderingTeam}</span> liderando!🎉</h1>
+                    }
+                </Slide>
             }
             <Grow in mountOnEnter timeout={700}>
                 <div id="results-container">

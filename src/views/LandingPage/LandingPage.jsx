@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useContext, useEffect} from 'react'
 import './LandingPageStyle.css'
 
 import Button from '../../components/Button/Button'
@@ -45,6 +45,8 @@ function LandingPage() {
     }
 
     function validateForm() {
+        document.querySelector('form button[type=submit]').textContent = 'CARREGANDO'
+
         if(username.length && quizzId && (chosenTeam.sabidos || chosenTeam.wikipedia)) {
             api.post('/player/add', {
                 username,
@@ -56,7 +58,7 @@ function LandingPage() {
                 setIsSubmitComplete(true)
             }).catch(err => {
                 setIsError({
-                    message: err.message, 
+                    message: err.response.data.message, 
                     active: true
                 })
             })
@@ -67,6 +69,12 @@ function LandingPage() {
             })
         }
     }
+
+    useEffect(() => {
+        if(isError) {
+            document.querySelector('form button[type=submit]').textContent = 'ENTRAR'
+        }
+    }, [isError])
 
     return (
         <div className="container" id='landing-page'>

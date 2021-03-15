@@ -12,13 +12,19 @@
 
     margin-bottom: 2%;
 
-    height: 55px;
+    min-height: 55px;
 
     background: #106DC2;
+
+    word-break: break-all;
 }
 
 #quizz-page .alternative:hover {
     background: #0a4a86;
+}
+
+#quizz-page .alternative:disabled {
+    background: #0a4175;
 }
 
 #quizz-page .alternative:last-child {

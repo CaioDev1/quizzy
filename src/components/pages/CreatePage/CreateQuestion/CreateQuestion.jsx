@@ -1,10 +1,16 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import './CreateQuestionStyle.css'
 
 import CreateAlternative from './CreateAlternative/CreateAlternative'
 
-function CreateQuestion({question, setQuestion, index}) {
-    
+function CreateQuestion({setQuestionList, index}) {
+    let [question, setQuestion] = useState({
+        title: '',
+        alternatives: [
+            {mark: 'A', content: '', correct: false},
+            {mark: 'B', content: '', correct: false}
+        ]
+    })
 
     function setQuestionMark(length) {
         switch(length) {
@@ -19,22 +25,24 @@ function CreateQuestion({question, setQuestion, index}) {
 
     function handleNewAlternative() {
         let teste = question
-        teste[index].alternatives = question[index].alternatives.length < 4 ?
+        teste.alternatives = question.alternatives.length < 4 ?
             [
-                ...question[index].alternatives,
+                ...question.alternatives,
                 {
-                    mark: setQuestionMark(question[index].alternatives.length),
+                    mark: setQuestionMark(question.alternatives.length),
                     content: '',
                     correct: false
                 }
             ] :
-            question[index].alternatives
+            question.alternatives
 
-        setQuestion([...teste])
+        setQuestion(preValue => {
+            return {...preValue} // o problema é aq
+        })
     }
 
     function setQuestionValue(mark, content) {
-        let updatedAlternative = question[index].alternatives.map(item => {
+        let updatedAlternative = question.alternatives.map(item => {
             if(item.mark == mark) {
                 item.content = content
             }
@@ -43,14 +51,14 @@ function CreateQuestion({question, setQuestion, index}) {
         })
             
         setQuestion(preValue => {
-            preValue[index].alternatives = updatedAlternative
+            preValue.alternatives = updatedAlternative
             
-            return [...preValue]
+            return {...preValue}
         })
     }
 
     function setCorrectAlternative(mark) {
-        let updatedCorrectAlternative = question[index].alternatives.map(item => {
+        let updatedCorrectAlternative = question.alternatives.map(item => {
             if(item.mark == mark) {
                 item.correct = !item.correct
             } else {
@@ -62,15 +70,15 @@ function CreateQuestion({question, setQuestion, index}) {
 
 
         setQuestion(preValue => {
-            preValue[index].alternatives = updatedCorrectAlternative
+            preValue.alternatives = updatedCorrectAlternative
             
-            return [...preValue]
+            return {...preValue}
         })
     }
 
     function handleDeleteAlternative(mark) {
         // exclue a alternativa do array
-        let updatedAlternativesWithDelete = question[index].alternatives.filter(item => {
+        let updatedAlternativesWithDelete = question.alternatives.filter(item => {
             return item.mark != mark
         })
 
@@ -84,28 +92,33 @@ function CreateQuestion({question, setQuestion, index}) {
         })
 
         setQuestion(preValue => {
-            preValue[index].alternatives = updatedAlternativesWithDelete
+            preValue.alternatives = updatedAlternativesWithDelete
 
-            return [...preValue]
+            return {...preValue}
         })
     }
 
     function handleQuestionTitle(e) {
         setQuestion(preValue => {
-            preValue[index] = {
-                title: e.target.value,
-                alternatives: question[index].alternatives
-            }
+            preValue.title = e.target.value
             
-            return [...preValue]
+            return {...preValue}
         })
     }
+
+    useEffect(() => {
+        setQuestionList(preValue => {
+            preValue[index] = question
+
+            return [...preValue]
+        })
+    }, [question])
 
     return (
         <div className='create-question'>
             <input type="text" name="" id="" placeholder='PERGUNTA' onChange={handleQuestionTitle} />
             <div className='create-question-alternatives-container'>
-                {question[index].alternatives.map((item, i) => {
+                {question.alternatives.map((item, i) => {
                     return (
                         <CreateAlternative 
                             mark={item.mark} 
@@ -114,10 +127,11 @@ function CreateQuestion({question, setQuestion, index}) {
                             setQuestionValue={setQuestionValue} 
                             setCorrectAlternative={setCorrectAlternative}
                             handleDeleteAlternative={handleDeleteAlternative}
+                            key={i}
                         />
                     )
                 })}
-                {question[index].alternatives.length <= 3 &&
+                {question.alternatives.length <= 3 &&
                     <button className='add-alternative-button' onClick={handleNewAlternative}>+</button>
                 }
             </div>

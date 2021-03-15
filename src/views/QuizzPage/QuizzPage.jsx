@@ -29,6 +29,8 @@ function QuizzPage() {
 
     let [currentPlayerId, setCurrentPlayerId] = useContext(CurrentPlayerIdContext)
 
+    let [isAutorized, setIsAutorized] = useState(false)
+
     let [isError, setIsError] = useState({
         message: '',
         active: false,
@@ -46,7 +48,7 @@ function QuizzPage() {
             setQuizz(response.data)
         }).catch(err => {
             setIsError({
-                message: err.message, 
+                message: err.response.data.message, 
                 active: true
             })
         })
@@ -57,6 +59,7 @@ function QuizzPage() {
             button.disabled = true
         })
 
+        isAutorized &&
         api.patch(`/player/send-answer?questionId=${quizz.questions[currentQuestion].questionId}&quizzId=${quizzId}&playerId=${currentPlayerId}&chosenAlternative=${mark}`).then(response => {
             setQuizz(preValue => {
                 let updatedQuestionResult = preValue
@@ -75,7 +78,7 @@ function QuizzPage() {
             })
         }).catch(err => {
             setIsError({
-                message: err.message, 
+                message: err.response.data.message, 
                 active: true
             })
         })
@@ -97,6 +100,7 @@ function QuizzPage() {
             nextQuestionTransition().then(() => {
                 setCurrentQuestion(preValue => {
                     if(preValue + 1 == quizz.questions.length) {
+                        setCurrentPlayerId('')
                         setIsQuizzCompleted(true)
 
                         return preValue
@@ -109,6 +113,21 @@ function QuizzPage() {
             })
         }
     }, [quizz])
+
+    useEffect(() => {
+        if(currentPlayerId == '') {
+            setIsError({
+                message: 'Jogador não cadastrado.', 
+                active: true
+            })
+
+            setTimeout(() => {
+                window.location = '/'
+            }, 2000)
+        } else {
+            setIsAutorized(true)
+        }
+    }, [])
 
     return (
         <div className="container" id="quizz-page">
@@ -129,7 +148,7 @@ function QuizzPage() {
                     </h3>
                 </div>
             </header>
-            {quizz.questions.length &&
+            {isAutorized && quizz.questions.length &&
                 <Fade in={isTransitionActive} timeout={300} mountOnEnter unmountOnExit>
                     <main>
                         <h1 id='quizz-title'>{quizz.questions[currentQuestion].title}</h1>

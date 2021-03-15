@@ -8,8 +8,7 @@ function CreateAlternative({mark, content, selected, setQuestionValue, setCorrec
             <input type="text" name="" id="" value={content} onChange={e => {setQuestionValue(mark, e.target.value)}} className='create-question-alternative' placeholder='TEXTO DA ALTERNATIVA'/>
             {
                 ['A', 'B'].indexOf(mark) == -1 && <button className='create-question-alternative-delete-button' onClick={() => {handleDeleteAlternative(mark)}}>X</button>
-            }
-            
+            }  
         </div>
     )
 }

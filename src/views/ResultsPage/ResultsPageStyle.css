@@ -25,6 +25,8 @@
         align-items: left;
 
         padding: 5%;
+
+        margin-bottom: 20px;
     }
 
      #results-page #winner-team {
@@ -65,3 +67,28 @@
              #results-page .button:hover {
                 background: #22211f;
             }
+
+@media screen and (max-width: 700px) {
+    #results-page #results-container {
+        width: 100%;
+        min-width: 300px;
+    }
+
+        #results-page .player-result h3 {
+            font-size: 1.2rem;
+        }
+
+        #results-page .player-score {
+            font-size: 0.7rem;
+
+            min-width: 50px;
+        }
+
+        #results-page .player-score span {
+            font-size: 1rem;
+        }
+
+    #results-page a.button {
+        width: 100%;
+    }
+}
