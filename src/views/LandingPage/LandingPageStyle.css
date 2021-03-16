@@ -65,11 +65,11 @@
             }
 
             #landing-page fieldset#teams > div:hover {
-                background: rgba(228, 228, 228, 0.493);
+                background: #1f22237d;
             }
 
             #landing-page fieldset#teams > div.selected {
-                background: lightgray;
+                background: #272a2c;
             }
 
                 #landing-page #team-sabidos span, #landing-page #team-wikipedia span {
@@ -95,7 +95,8 @@
 
                     padding: 5px;
 
-                    background: gray;
+                    background: #4d5356;
+                    color: #bab8b6;
                     border-radius: 5px;
                 }
 

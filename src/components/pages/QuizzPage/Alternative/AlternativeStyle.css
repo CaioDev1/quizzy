@@ -36,6 +36,8 @@
         
         font-size: 1.4rem;
         font-weight: bolder;
+
+        color: white;
     }
 
 #quizz-page .alternative.correct {

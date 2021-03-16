@@ -41,10 +41,19 @@
             font-weight: bold;
 
             margin-right: 5%;
+
+            color: white;
         }
 
+            #create-page .add-alternative-button svg {
+                height: 15px;
+                width: 15px;
+
+                fill: white;
+            }
+
         #create-page .create-question-alternative-button {
-            background: #C4C4C4;
+            background: #2e3233;
         }
 
             #create-page .create-question-alternative-button.selected {
