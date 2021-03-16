@@ -12,7 +12,7 @@ function App() {
     let [currentPlayerId, setCurrentPlayerId] = useState('')
 
     return (
-        <Router>
+        <Router basename='/'>
             <CurrentPlayerIdContext.Provider value={[currentPlayerId, setCurrentPlayerId]}>
                 <Route exact path='/' component={LandingPage} />
                 <Route exact path='/create' component={CreatePage} />
