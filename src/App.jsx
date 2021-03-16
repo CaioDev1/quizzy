@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import {HashRouter as Router, Route} from 'react-router-dom'
 
 import LandingPage from './views/LandingPage/LandingPage'
 import CreatePage from './views/CreatePage/CreatePage'
