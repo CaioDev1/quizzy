@@ -21,7 +21,10 @@ function QuizzPage() {
 
     let [currentQuestion, setCurrentQuestion] = useState(0)
 
-    let [isQuizzCompleted, setIsQuizzCompleted] = useState(false)
+    let [redirect, setRedirect] = useState({
+        active: false,
+        to: ''
+    })
 
     let [userScore, setUserScore] = useState(0)
 
@@ -101,7 +104,10 @@ function QuizzPage() {
                 setCurrentQuestion(preValue => {
                     if(preValue + 1 == quizz.questions.length) {
                         setCurrentPlayerId('')
-                        setIsQuizzCompleted(true)
+                        setRedirect({
+                            active: true,
+                            to: `/quizz/${quizzId}/results`
+                        })
 
                         return preValue
                     }
@@ -122,7 +128,10 @@ function QuizzPage() {
             })
 
             setTimeout(() => {
-                window.location = '/'
+                setRedirect({
+                    active: true,
+                    to: '/'
+                })
             }, 2000)
         } else {
             setIsAutorized(true)
@@ -161,7 +170,7 @@ function QuizzPage() {
                 </Fade>
             }
             {isError.active && <Notification message={isError.message} setIsError={setIsError} active={isError.active} />}
-            {isQuizzCompleted && <Redirect to={`/quizz/${quizzId}/results`} />}
+            {redirect.active && <Redirect to={redirect.to} />}
         </div>
     )
 }
