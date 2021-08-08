@@ -1,0 +1,46 @@
+#results-page .player-result {
+    width: 100%;
+
+    background: #3f4547;
+
+    display: flex;
+    align-items: center;
+
+    padding: 10px;
+
+    border-radius: 20px;
+
+    margin-bottom: 10px;
+
+    word-break: break-all;
+}
+
+#results-page .player-result:last-child {
+    margin-bottom: 0;
+}
+
+    #results-page .player-result h3 {
+        font-size: 1.5rem;
+    }
+
+    #results-page .player-score {
+        margin-left: auto;
+
+        text-align: center;
+
+        line-height: 20px;
+    }
+
+        #results-page .player-score span {
+            color: #2384DD;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+#results-page .player-result:hover {
+    background: #5e5e5e;
+}
+
+#results-page .button:hover {
+    background: #383d3f !important;
+}

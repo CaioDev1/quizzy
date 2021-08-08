@@ -1,0 +1,17 @@
+.team-icon {
+    border-radius: 100%;
+
+    min-width: 50px;
+    min-height: 50px;
+
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .team-icon img {
+        height: 90%;
+        width: 90%;
+    }

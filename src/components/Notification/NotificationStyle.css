@@ -1,0 +1,22 @@
+.notification {
+    position: fixed;
+
+    top: 2%;
+    right: 2%;
+
+    width: 200px;
+
+    padding: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: left;
+
+    border-radius: 10px;
+
+    font-size: 1rem;
+
+    background: rgba(224, 105, 105, 0.63);
+}

@@ -1,0 +1,94 @@
+.container#results-page {
+    padding: 3% 5%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+    #results-page h1:first-child {
+        font-size: 3rem;
+
+        margin-bottom: 30px;
+    }
+
+    #results-page #estatistics-container {
+        width: 100%;
+
+        background: rgba(26, 126, 26, 0.63);
+
+        border-radius: 25px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: left;
+
+        padding: 5%;
+
+        margin-bottom: 20px;
+    }
+
+     #results-page #winner-team {
+        margin: 30px 0;
+        
+        background: #002073c2;
+
+        border-radius: 25px;
+
+        padding: 10px 30px;
+
+        font-size: 2.5rem;
+
+        text-align: center;
+    }
+
+         #results-page #winner-team span {
+            color: #16cbcc;
+        }
+
+     #results-page #results-container {
+        width: 50%;
+        min-width: 400px;
+
+        background: #2e3233;
+
+        padding: 15px;
+
+        border-radius: 20px;
+    }
+        
+         #results-page .button {
+            width: 50%;
+
+            margin-top: 5%;
+        }
+
+             #results-page .button:hover {
+                background: #22211f;
+            }
+
+@media screen and (max-width: 700px) {
+    #results-page #results-container {
+        width: 100%;
+        min-width: 300px;
+    }
+
+        #results-page .player-result h3 {
+            font-size: 1.2rem;
+        }
+
+        #results-page .player-score {
+            font-size: 0.7rem;
+
+            min-width: 50px;
+        }
+
+        #results-page .player-score span {
+            font-size: 1rem;
+        }
+
+    #results-page a.button {
+        width: 100%;
+    }
+}

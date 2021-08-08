@@ -1,0 +1,49 @@
+#quizz-page .alternative {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    border-radius: 10px;
+
+    font-size: 1rem;
+
+    padding: 0 15px;
+
+    margin-bottom: 2%;
+
+    min-height: 55px;
+
+    background: #106DC2;
+
+    word-break: break-all;
+}
+
+#quizz-page .alternative:hover {
+    background: #0a4a86;
+}
+
+#quizz-page .alternative:disabled {
+    background: #0a4175;
+}
+
+#quizz-page .alternative:last-child {
+    margin-bottom: 0;
+}
+
+    #quizz-page .alternative-mark {
+        margin-right: 50px;
+        
+        font-size: 1.4rem;
+        font-weight: bolder;
+
+        color: white;
+    }
+
+#quizz-page .alternative.correct {
+    background: green;
+}
+
+#quizz-page .alternative.wrong {
+    background: red;
+}

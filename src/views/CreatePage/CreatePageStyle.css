@@ -1,5 +1,5 @@
 .container#create-page {
-    padding: 0% 40% 3% 5%;
+    padding: 0% 0 3% 5%;
 
     position: relative;
 }
@@ -8,52 +8,13 @@
         font-size: 5rem;
     }
 
-    #create-page .create-question {
-        display: flex;
-        flex-direction: column;
-
-        margin: 25px 0;
+    #create-page main {
+        padding-right: 400px;
     }
 
-        #create-page .create-question > input {
-            width: 80%;
-        }
-
-        #create-page .create-question-alternative-field {
-            display: flex;
-
-            margin: 25px 0;
-        }
-
-        #create-page .create-question-alternative-field input {
-            width: 85%;
-            height: 40px;
-        }
-
-            #create-page .create-question-alternative-button,
-            #create-page .add-alternative-button {
-                border-radius: 8px;
-
-                height: 40px;
-                width: 10%;
-
-                display: flex;
-                align-items: center;
-                justify-content: center;
-
-                font-size: 1.5rem;
-                font-weight: bold;
-
-                margin-right: 5%;
-            }
-
-            #create-page .create-question-alternative-button {
-                background: #C4C4C4;
-            }
-
-            #create-page .add-alternative-button {
-                background: #3EACEA;
-            }
+    #create-page .create-question-container {
+        max-width: 1300px;
+    }
 
         #create-page #add-question {
             width: 100%;
@@ -61,11 +22,15 @@
 
             background: transparent;
 
-            border: 2px solid #3EACEA;
+            border: 3px solid #3EACEA;
             border-radius: 10px;
 
             font-size: 2rem;
         }
+
+            #create-page #add-question svg {
+                fill: white;
+            }
 
     #create-page #create-question-menu {
         position: fixed;
@@ -73,7 +38,7 @@
         bottom: 5%;
         right: 1%;
 
-        background: #8b8b8b;
+        background: #484e51;
         border-radius: 25px;
 
         padding: 10px;
@@ -90,22 +55,62 @@
                 margin-top: 10px;
             }
 
-        #create-page #question-menu-rows h3 {
-            height: 50px;
-            width: 100%;
-
-            background: rgb(46, 50, 51);
-
-            border-radius: 10px;
-
-            font-size: 20px;
-            font-weight: bold;
-
+        #create-page #question-menu-rows {
             display: flex;
-            align-items: center;
+            flex-direction: column;
 
-            padding-left: 30px;
-
-            margin: 10px 0;
+            overflow: hidden;
         }
+
+            #create-page #question-menu-rows > * {
+                margin-bottom: 10px;
+            }
+
+            #create-page #question-menu-rows:last-child {
+                margin: 0;
+            }
+
+    
+            #create-page #question-menu-rows h3 {
+                height: 50px;
+                width: 100%;
+
+                background: rgb(46, 50, 51);
+
+                border-radius: 10px;
+
+                font-size: 20px;
+                font-weight: bold;
+
+                display: flex;
+                align-items: center;
+
+                padding-left: 30px;
+            }
+
+@media screen and (max-width: 900px) {
+    #create-page.container {
+        padding: 10px;
+    }
+
+        #create-page h1 {
+            font-size: 3rem;
+            text-align: center;
+
+            line-height: 60px;
+        }
+
+        #create-page main {
+            padding: 0;
+        }
+
+        #create-page #create-question-menu {
+            position: initial;
+
+            max-width: 500px;
+            max-height: 450px;
+
+            margin: 5% auto 0;
+        }
+}
 

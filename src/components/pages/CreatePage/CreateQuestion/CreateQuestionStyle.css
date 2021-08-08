@@ -1,0 +1,94 @@
+#create-page .create-question {
+    display: flex;
+    flex-direction: column;
+
+    margin: 25px 0;
+}
+
+    #create-page .create-question > input {
+        width: 80%;
+    }
+
+    #create-page .create-question-alternative-field {
+        display: flex;
+
+        margin: 25px 0;
+        
+        position: relative;
+    }
+
+    #create-page .create-question-alternative {
+        width: 100%;
+        height: 40px;
+
+        padding-right: 40px;
+    }
+
+        #create-page .create-question-alternative-button,
+        #create-page .add-alternative-button {
+            border-radius: 8px;
+
+            height: 40px;
+            min-width: 50px;
+            width: 10%;
+            max-width: 70px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 1.5rem;
+            font-weight: bold;
+
+            margin-right: 5%;
+
+            color: white;
+        }
+
+            #create-page .add-alternative-button svg {
+                height: 15px;
+                width: 15px;
+
+                fill: white;
+            }
+
+        #create-page .create-question-alternative-button {
+            background: #2e3233;
+        }
+
+            #create-page .create-question-alternative-button.selected {
+                background: #36820d;
+            }
+
+        #create-page .add-alternative-button {
+            background: #3EACEA;
+        }
+
+        #create-page .create-question-alternative-delete-button {
+            position: absolute;
+
+            top: 0;
+            right: 0;
+    
+            height: 100%;
+            width: 40px;
+    
+            padding: 0%;
+
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+    
+            display: flex;
+            align-items: center;
+            justify-content: center;
+    
+            background: rgba(255, 0, 0, 0.473);
+            color: white;
+
+            font-size: 1rem;
+            font-weight: bolder;
+        }
+
+            #create-page .create-question-alternative-delete-button:hover {
+                background: red;
+            }
