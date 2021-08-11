@@ -6,7 +6,6 @@
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 
-
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
@@ -57,11 +56,13 @@
 <!-- ABOUT THE PROJECT -->
 <h2 id="sobre-o-projeto">💡 Sobre o projeto</h2>
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]](https://caiodev1.github.io/quizzy/#/)
 
 O Quizzy é uma plataforma "gameficada" de testes de conhecimentos baseados em diversos temas, nele, é possível a criação de quizzes com inúmeras perguntas, configurar as alternativas,
 e enviar seu quizz para diversos outros usuários, no Quizzy, temos duas equipes adversárias, o time "Sabidos" e o "Wikipédia", dessa forma é possível você escolher a sua bandeira a defender
 e com isso, somar pontuações para sua equipe com base no seu desempenho nas respostas, ganha a equipe com maior número de pontos.
+
+[![Product Name Screen Shot2][product-screenshot2]](https://caiodev1.github.io/quizzy/#/)
 
 * Crie quizzes e envie para outros jogadores
 * Selecione sua equipe e acompanhe seus resultados com as diferentes salas de quizz
@@ -138,4 +139,5 @@ Link do projeto: [https://github.com/CaioDev1/quizzy](https://github.com/CaioDev
 [license-url]: https://github.com/CaioDev1/quizzy/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/FALTA-COLOCAR
-[product-screenshot]: public/image.png
+[product-screenshot]: public/quizzy-gif1.gif
+[product-screenshot2]: public/quizzy-gif2.gif
