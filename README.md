@@ -45,7 +45,7 @@
         <li><a href="#instalação">Instalação</a></li>
       </ul>
     </li>
-    <li><a href="#mais-informações">Mais informações</a></li>
+    <li><a href="#mais-informações">API</a></li>
     <li><a href="#licença">Licença</a></li>
     <li><a href="#contato">Contato</a></li>
   </ol>
@@ -100,7 +100,7 @@ Para isso, siga os seguintes passos:
 
 
 <!-- USAGE EXAMPLES -->
-<h2 id="mais-informações">ℹ Mais Informações</h2>
+<h2 id="mais-informações">ℹ API</h2>
 
 Além da parte do frontend da aplicação, temos a API que gerencia as requisições e trata todo o esquema e segurança da aplicação,
 para acessa-la, basta ir para o link do repositório abaixo: 
